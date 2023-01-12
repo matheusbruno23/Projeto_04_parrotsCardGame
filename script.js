@@ -42,11 +42,11 @@ function invalidNumberOfCards(){
     for(let i = 0; i < cards.length; i++){
     let card = `
     <li class="card" onclick="selectCard(this)">
-        <div class="front">
+        <div class="face front">
             <img src="./Arquivos U╠üteis - Projeto 04 - Parrot Card Game/back.png">
         </div>
-        <div class="back">
-            <img src="">
+        <div class="face back">
+            <img src="./Arquivos U╠üteis - Projeto 04 - Parrot Card Game/back.png">
         </div>
     </li>
     `
