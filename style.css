@@ -13,7 +13,8 @@
 }
 
 .board{
-    width: 100%;
+    width: 70%;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -22,11 +23,11 @@
 .card{
     width: 117px;
     height: 146px;
-    background-color: #A7E9AF;
     position: relative;
+    border-radius: 5px;
+    margin: 10px;
     transition: all 0.5s;
     transform-style: preserve-3d;
-    border-radius: 5px;
 }
 
 .face{
@@ -41,12 +42,13 @@
     border: 1px solid #99CEA8;
 }
 
-.front{
-    transform: rotateY(180deg);
+.back{
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
 }
 
-.back{
-    backface-visibility: hidden;
+.front{
+    transform: rotateY(180deg);
 }
 
 .card img {
@@ -54,10 +56,9 @@
     background-color: #A7E9AF;
 }
 
-.card:hover{
+.turn{
     transform: rotateY(180deg);
 }
-
 
 @media (max-width: 335px){
     
