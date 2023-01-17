@@ -59,12 +59,12 @@ function displayCards(){
     const board = document.querySelector('ul')
     for(let i = 0; i < cards.length; i++){
     let card = `
-    <li class="card" onclick="selectCard(this)">
+    <li data-test="card" class="card" onclick="selectCard(this)">
         <div class="face front">
-            <img src="./images/${cards[i]}.gif">
+            <img data-test="face-up-image" src="./images/${cards[i]}.gif">
         </div>
         <div class="face back">
-            <img src="./images/back.png">
+            <img data-test="face-down-image" src="./images/back.png">
         </div>
     </li>
     `
