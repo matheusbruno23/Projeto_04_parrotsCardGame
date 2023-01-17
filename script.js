@@ -1,7 +1,12 @@
-// variaveis globais
+//variaveis globais
 //variável pra saber qual foi a primeira carta selecionada - comparar as duas cartas para virar e desvirar
 let firstCard;
 let secondCard;
+
+//variáveis de números de jogadas
+let clickedCard = 0;
+let rightCard = 0;
+
 // numero de cartas colocado no prompt pelo usuario
 let ncards;
 //arrays
@@ -76,37 +81,49 @@ function unturnCards(){
     resetAtt();
 }
 //resetar atributos das variaveis
+
 function resetAtt(){
     firstCard = undefined;
     secondCard = undefined;
 }
-
+// seleciona a carta e vira a face dela para cima.
 function selectCard(turnedCard){
     if (turnedCard.classList.contains('turn')){
         return;
+    } if(firstCard !== undefined && secondCard !== undefined){
+        return
     }
+        turnedCard.classList.add('turn');
+        clickedCard++;
 
-        if (firstCard === undefined || secondCard === undefined){
-            turnedCard.classList.add('turn');
             if (firstCard === undefined){
                firstCard = turnedCard
+                
             } else{
                 if (secondCard === undefined){
                 secondCard = turnedCard
+                
                 if(firstCard.innerHTML === secondCard.innerHTML){
-                    resetAtt()
+
+                    resetAtt();
+                    rightCard += 2;
+                    endGame();
+
                     } else {
-                        
-                  setTimeout(unturnCards, 800)
+                    setTimeout(unturnCards, 800)
                 }
             }
         }
-    }
-    console.log(firstCard)
-    console.log(secondCard)
 }
 
-//criar primeiro o resetador das variaveis das cartas clicadas
+//encerra o jogo e coloca um alert
+
+function endGame(){
+    if (rightCard === cards.length){
+        alert(`Jogo de ${Number(cards.length)} cartas, Finalizado em ${clickedCard} jogadas!`);
+        console.log(rightCard);
+    }
+}
 
 
-askForCards()
+askForCards();
